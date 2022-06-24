@@ -60,11 +60,11 @@ public class Main {
             AbsoluteDate extrapDate = new AbsoluteDate(String.valueOf(tle.getDate()), TimeScalesFactory.getUTC());
            // extrapDate = new AbsoluteDate(2022, 3, 29, 22, 31, 33.0, TimeScalesFactory.getUTC());
             extrapDate = new AbsoluteDate(String.valueOf(date_sat1.getDate()), TimeScalesFactory.getUTC());
-            AbsoluteDate finalDate = extrapDate.shiftedBy(60.0 * 60 * 48); //seconds
+            AbsoluteDate finalDate = extrapDate.shiftedBy(60.0 * 60 * 24 * 3.5); //seconds
           //  System.out.println(extrapDate);
           //  System.out.println(finalDate);
             while (extrapDate.compareTo(finalDate) <= 0.0) {
-                extrapDate = extrapDate.shiftedBy(5.0);
+                extrapDate = extrapDate.shiftedBy(30.0);
                 TimeStampedPVCoordinates pv = propagator.getPVCoordinates(extrapDate, inertialFrame);
 
                 AbsoluteDate date1 = pv.getDate();
